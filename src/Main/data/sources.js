@@ -7,6 +7,6 @@ export default [
   {
     name: "ramenModel",
     type: "gltfModel",
-    path: "ramen_joined.glb",
+    path: "ramen.glb",
   },
 ];

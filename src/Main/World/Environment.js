@@ -14,21 +14,26 @@ export default class Environment {
     if (this.debug.active) {
       this.debugFolder = this.debug.ui.addFolder("environment");
     }
+    this.parameters = {};
 
     this.setAmbient();
     this.setSunLight();
-    this.setArtificial1();
-    this.setArtificial2();
-    this.setArtificial3();
   }
 
   setAmbient() {
-    this.ambientLight = new THREE.AmbientLight(0xffffff, 1);
+    this.ambientLight = new THREE.AmbientLight("#ffe0ce", 2);
     this.scene.add(this.ambientLight);
+    this.parameters.ambientColor = "#ffe0ce";
+    // Debug
+    if (this.debug.active) {
+      this.debugFolder.addColor(this.parameters, "ambientColor").onChange(() => {
+        this.ambientLight.color.set(this.parameters.ambientColor);
+      });
+    }
   }
 
   setSunLight() {
-    this.sunLight = new THREE.DirectionalLight("#ebe8d6", 3);
+    this.sunLight = new THREE.DirectionalLight("#ffffff", 2.5);
     this.sunLight.castShadow = true;
     this.sunLight.shadow.camera.far = 15;
     this.sunLight.shadow.mapSize.set(1024, 1024);
@@ -36,7 +41,6 @@ export default class Environment {
     this.sunLight.position.set(3.5, 2, 5);
     this.scene.add(this.sunLight);
 
-    this.parameters = {};
     this.parameters.sunColor = "#D8D2AF";
 
     // Debug

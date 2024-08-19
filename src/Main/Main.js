@@ -1,4 +1,5 @@
 import * as THREE from "three";
+// import Stats from "stats.js";
 
 import Sizes from "./Utils/Sizes";
 import Time from "./Utils/Time";
@@ -21,6 +22,11 @@ export default class Main {
 
     // Global Access
     window.main = this;
+
+    // // performance
+    // this.stats = new Stats();
+    // this.stats.showPanel(0);
+    // document.body.appendChild(this.stats.dom);
 
     // Options
     this.canvas = canvas;
@@ -54,9 +60,13 @@ export default class Main {
   }
 
   update() {
+    // this.stats.begin();
+
     this.camera.update();
     this.world.update();
     this.renderer.update();
+
+    // this.stats.end();
   }
 
   destroy() {
