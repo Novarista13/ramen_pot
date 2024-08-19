@@ -32,11 +32,20 @@ body {
 }
 
 .range_container p {
-  font-size: 20px;
   font-family: "Platypi", serif;
   font-optical-sizing: auto;
-  font-weight: 400;
+
   font-style: normal;
+}
+
+.label {
+  font-size: 20px;
+  font-weight: 400;
+}
+
+.notice {
+  font-size: 14px;
+  font-weight: 200;
 }
 
 .range {
@@ -45,12 +54,27 @@ body {
 
 .range_input {
   width: 100%;
+  appearance: none;
+  -webkit-appearance: none;
   height: 13px;
   border-radius: 6px;
   background: #f1f1f1;
   outline: none;
   padding: 0;
   margin: 0;
+}
+
+.range_input::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background: #f9ca24;
+  border: #f9ca24 5px solid;
+  cursor: pointer;
+  -webkit-transition: background 0.15s ease-in-out;
+  transition: background 0.15s ease-in-out;
 }
 
 .range_input::-webkit-slider-thumb:hover {
